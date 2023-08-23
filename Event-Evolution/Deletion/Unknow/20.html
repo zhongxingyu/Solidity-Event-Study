@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -229,9 +253,9 @@ contract Nix is Owned, ERC721TokenReceiver {
+         }
+ 
+         trade.netting[wethFrom] -= int(amount);
+-        emit NettingEvent(wethFrom, trade.netting[wethFrom]);
++        // emit NettingEvent(wethFrom, trade.netting[wethFrom]);
+         trade.netting[wethTo] += int(amount);
+-        emit NettingEvent(wethTo, trade.netting[wethTo]);
++        // emit NettingEvent(wethTo, trade.netting[wethTo]);
+     }
+ 
+     // event TransferFrom(address from, address to, uint amount);
+</code>
+</pre>
+</div>

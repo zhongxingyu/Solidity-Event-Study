@@ -1,0 +1,24 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -300,6 +301,7 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
+ 
+         // Clear approvals from the previous owner
+         _approve(address(0), tokenId);
++        emit Approval(ERC721.ownerOf(tokenId), address(0), tokenId);
+ 
+         _balances[from] -= 1;</code>
+</pre>
+</div>

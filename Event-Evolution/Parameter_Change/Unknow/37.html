@@ -1,0 +1,35 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -926,15 +926,15 @@ contract SyscoinBattleManager is Initializable, SyscoinErrorCodes {
+     function convictChallenger(bytes32 sessionId, uint err) private {
+         BattleSession storage session = sessions[sessionId];
+         sessionDecided(sessionId, session.superblockHash, session.submitter, session.challenger);
+-        emit ChallengerConvicted(sessionId, session.superblockHash, err, session.challenger);
++        emit ChallengerConvicted(session.superblockHash, sessionId, err, session.challenger);
+         disable(sessionId);
+     }
+ 
+     // @dev - To be called when a submitter is convicted
+     function convictSubmitter(bytes32 sessionId, uint err) private {
+         BattleSession storage session = sessions[sessionId];
+         sessionDecided(sessionId, session.superblockHash, session.challenger, session.submitter);
+-        emit SubmitterConvicted(sessionId, session.superblockHash, err, session.submitter);
++        emit SubmitterConvicted(session.superblockHash, sessionId, err, session.submitter);
+         disable(sessionId);
+     }
+ </code>
+</pre>
+</div>

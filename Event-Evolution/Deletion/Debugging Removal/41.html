@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -397,9 +400,6 @@ contract GebUniswapV3LiquidityManager is ERC20 {
+         // Read all this from storage to minimize SLOADs
+         (int24 _currentLowerTick, int24 _currentUpperTick) = (position.lowerTick, position.upperTick);
+         (uint160 sqr6, , , , , , ) = pool.slot0();
+-        emit DEBUG(sqr6);
+-        emit DEBUG(TickMath.getSqrtRatioAtTick(_currentLowerTick));
+-        emit DEBUG(TickMath.getSqrtRatioAtTick(_currentUpperTick));
+ </code>
+</pre>
+</div>

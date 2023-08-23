@@ -1,0 +1,36 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -279,17 +279,17 @@ contract HiveTemplate is BaseTemplate {
+         // Dot-voting permissions
+         acl.createPermission(ANY_ENTITY, dotVoting, dotVoting.ROLE_CREATE_VOTES(), mbrVoting);
+         acl.createPermission(ANY_ENTITY, dotVoting, dotVoting.ROLE_ADD_CANDIDATES(), mbrVoting);
+-        emit InstalledApp(dotVoting, keccak256(abi.encodePacked(apmNamehash("open"), keccak256("dot-voting")));
++        emit InstalledApp(dotVoting, keccak256(abi.encodePacked(apmNamehash("open"), keccak256("dot-voting-preview"))));
+ 
+         // Allocations permissions:
+         acl.createPermission(mbrVoting, allocations, allocations.CREATE_ACCOUNT_ROLE(), mbrVoting);
+         acl.createPermission(dotVoting, allocations, allocations.CREATE_ALLOCATION_ROLE(), mbrVoting);
+         acl.createPermission(ANY_ENTITY, allocations, allocations.EXECUTE_ALLOCATION_ROLE(), mbrVoting);
+-        emit InstalledApp(allocations, keccak256(abi.encodePacked(apmNamehash("open"), keccak256("allocations"))));
++        emit InstalledApp(allocations, keccak256(abi.encodePacked(apmNamehash("open"), keccak256("allocations-preview"))));
+ 
+         // Rewards permissions:
+         acl.createPermission(mbrVoting, rewards, rewards.ADD_REWARD_ROLE(), mbrVoting);
+-        emit InstalledApp(rewards, keccak256(abi.encodePacked(apmNamehash("open"), keccak256("rewards")));
++        emit InstalledApp(rewards, keccak256(abi.encodePacked(apmNamehash("open"), keccak256("rewards-preview"))));
+     }</code>
+</pre>
+</div>

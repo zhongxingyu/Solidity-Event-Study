@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -43,15 +52,19 @@ contract LoihiTest is AdaptersSetup, DSMath, DSTest {
+     function testproportionalDeposit () public {
+ 
+         uint256 mintedShells = l.proportionalDeposit(100 * (10 ** 18));
+-        emit log_named_uint("shells", mintedShells);
+         assertEq(mintedShells, 100 * (10 ** 18));
++
+         uint256 cusdcBal = IERC20(cusdc).balanceOf(address(l)); // 165557372275ish
+         uint256 cdaiBal = IERC20(cdai).balanceOf(address(l)); // 163925889326ish
+         uint256 usdtBal = IERC20(usdt).balanceOf(address(l)); // 33333333333333333300
+ 
+         uint256 usdtNumeraireAmount = new KovanUsdtAdapter().getNumeraireAmount(usdtBal);
+         uint256 cusdcNumeraireAmount = new KovanCUsdcAdapter().getNumeraireAmount(cusdcBal);
+         uint256 cdaiNumeraireAmount = new KovanCDaiAdapter().getNumeraireAmount(cdaiBal);
++        
++        // uint256 usdtNumeraireAmount = new LocalUsdtAdapter().getNumeraireAmount(usdtBal);
++        // uint256 cusdcNumeraireAmount = new LocalCUsdcAdapter().getNumeraireAmount(cusdcBal);
++        // uint256 cdaiNumeraireAmount = new LocalCDaiAdapter().getNumeraireAmount(cdaiBal);
+ 
+         assertEq(usdtNumeraireAmount / (10 ** 10), 3333333300);
+         assertEq(cusdcNumeraireAmount / (10 ** 10), 3333333300);
+</code>
+</pre>
+</div>

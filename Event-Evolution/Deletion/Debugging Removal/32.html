@@ -1,0 +1,35 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -262,18 +264,13 @@ contract Rebalancer {
+         _maxAmountIn[1] = looseBalanceB();
+         _bptOut = _bptOut.mul(params.joinPoolMultiplier).div(100);
+         bpt.joinPool(_bptOut, _maxAmountIn);
+-        emit Debug("currentWeightA", currentWeightA());
+-        emit Debug("currentWeightB", currentWeightB());
+-        emit Debug("looseBalanceA", looseBalanceA());
+-        emit Debug("looseBalanceB", looseBalanceB());
+-        emit Debug("pooledBalanceA", pooledBalanceA());
+-        emit Debug("pooledBalanceB", pooledBalanceB());
+ 
+         // when at limit, don't pool in rest of balance since
+         // it'll just create positive slippage opportunities for arbers
+         if (!_atWeightLimit) {
+             joinPoolSingles();
+         }
++
+     }</code>
+</pre>
+</div>

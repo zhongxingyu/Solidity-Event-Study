@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -136,7 +136,7 @@ contract Market is IERC1155Receiver, ReentrancyGuard {
+     saleWindow[seller][listingId].start =  block.timestamp + _secondsUntilStart;
+     saleWindow[seller][listingId].end = _secondsUntilEnd == 0 ? type(uint256).max : block.timestamp + _secondsUntilEnd;
+ 
+-    emit SaleWindowUpdate(seller, listingId, _secondsUntilStart, _secondsUntilEnd);
++    emit SaleWindowUpdate(seller, listingId, saleWindow[seller][listingId].start, saleWindow[seller][listingId].end);
+   }
+ </code>
+</pre>
+</div>

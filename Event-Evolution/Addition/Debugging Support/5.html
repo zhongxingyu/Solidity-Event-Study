@@ -1,0 +1,28 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -190,8 +190,11 @@ library BokkyPooBahsRedBlackTreeLibrary {
+             self.nodes[y].red = self.nodes[z].red;
+             (y, z) = (z, y);
+         }
++        emit Log("remove", "before doFixup", x, self.nodes[x].parent, self.nodes[x].left, self.nodes[x].right, self.nodes[x].red);
+         if (doFixup) {
++            emit Log("remove", "before removeFixup", x, self.nodes[x].parent, self.nodes[x].left, self.nodes[x].right, self.nodes[x].red);
+             removeFixup(self, x);
++            emit Log("remove", "after removeFixup", x, self.nodes[x].parent, self.nodes[x].left, self.nodes[x].right, self.nodes[x].red);
+             // TODO Check if required delete self.nodes[0];
+             // delete self.nodes[0];</code>
+</pre>
+</div>

@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -44,13 +44,9 @@ contract ChaiAdapter is LoihiRoot {
+     // takes numeraire amount
+     // transfers corresponding chai to destination address
+     function outputNumeraire (address dst, uint256 amount) public returns (uint256) {
+-        emit log("Wtf");
+-        emit log_addr("dst", dst);
+         uint256 bal = chai.balanceOf(address(this));
+-        emit log_uint("bal", bal);
+         chai.move(address(this), dst, amount);
+         bal = chai.balanceOf(address(this)) - bal;
+-        emit log_uint("bal2", bal);
+         return bal;
+     }</code>
+</pre>
+</div>

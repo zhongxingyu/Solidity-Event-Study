@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -67,7 +67,7 @@ contract RandomExample is usingOraclize {
+         uint N = 7; // number of random bytes we want the datasource to return
+         uint delay = 0; // number of seconds to wait before the execution takes place
+         uint callbackGas = 200000; // amount of gas we want Oraclize to set for the callback function
+-        emit LogNewOraclizeQuery("Oraclize query was sent, standing by for the answer...");
+         bytes32 queryId = oraclize_newRandomDSQuery(delay, N, callbackGas); // this function internally generates the correct oraclize_query and returns its queryId
++        emit LogNewOraclizeQuery("Oraclize query was sent, standing by for the answer...");
+     }</code>
+</pre>
+</div>

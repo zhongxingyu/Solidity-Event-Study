@@ -1,0 +1,32 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -462,14 +456,14 @@ contract Divider is Trust, ReentrancyGuard, Pausable {
+     /// @param _guarded bool
+     function setGuarded(bool _guarded) external requiresTrust {
+         guarded = _guarded;
+-        emit GuardedChanged(guarded);
++        emit GuardedChanged(_guarded);
+     }
+ 
+     /// @notice Set periphery's contract
+     /// @param _periphery Target address
+     function setPeriphery(address _periphery) external requiresTrust {
+         periphery = _periphery;
+-        emit PeripheryChanged(periphery);
++        emit PeripheryChanged(_periphery);
+     }</code>
+</pre>
+</div>

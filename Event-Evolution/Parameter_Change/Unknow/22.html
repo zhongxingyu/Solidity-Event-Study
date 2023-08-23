@@ -1,0 +1,52 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -829,30 +819,30 @@ contract WildcardSteward_v3_matic is
+     )
+         public
+         collectPatronageAndSettleBenefactor(tokenId)
+-        collectPatronagePatron(_msgSender())
++        collectPatronagePatron(msgSender())
+         priceGreaterThanZero(_newPrice)
+-        youCurrentlyAreNotInDefault(_msgSender())
++        youCurrentlyAreNotInDefault(msgSender())
+         validWildcardsPercentage(serviceProviderPercentage, tokenId)
+     {
+         require(state[tokenId] == StewardState.Owned, "token on auction");
+         require(
+             price[tokenId] == previousPrice,
+             "must specify current price accurately"
+         );
+-        receiveErc20(depositAmount.add(price[tokenId]), _msgSender());
++        receiveErc20(depositAmount.add(price[tokenId]), msgSender());
+         address owner = assetToken.ownerOf(tokenId);
+ 
+         _distributePurchaseProceeds(tokenId);
+ 
+         serviceProviderPercentages[tokenId] = serviceProviderPercentage;
+-        deposit[_msgSender()] = deposit[_msgSender()].add(depositAmount);
++        deposit[msgSender()] = deposit[msgSender()].add(depositAmount);
+         transferAssetTokenTo(
+             tokenId,
+             assetToken.ownerOf(tokenId),
+-            _msgSender(),
++            msgSender(),
+             _newPrice
+         );
+-        emit Buy(tokenId, _msgSender(), _newPrice);
++        emit Buy(tokenId, msgSender(), _newPrice);
+     }</code>
+</pre>
+</div>

@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -9749,7 +9749,7 @@ contract HiveTemplate is BaseTemplate {
+     {
+         acl.createPermission(mbrVoting, addressBook, addressBook.ADD_ENTRY_ROLE(), mbrVoting);
+         acl.createPermission(mbrVoting, addressBook, addressBook.REMOVE_ENTRY_ROLE(), mbrVoting);
+-        emit InstalledApp(addressBook, apmNamehash("address-book"));
++        emit InstalledApp(addressBook, keccak256(abi.encodePacked(apmNamehash("open"), keccak256("address-book-preview"))));
+ 
+ </code>
+</pre>
+</div>

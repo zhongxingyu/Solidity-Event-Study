@@ -1,0 +1,26 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -36,8 +34,8 @@ contract WitnetBridgeInterface {
+ 
+   function report_result (uint256 id, bytes memory result) public {
+     requests[id].result = result;
+-    emit PostResult(msg.sender, id);
+     msg.sender.transfer(requests[id].reward);
++    emit PostResult(msg.sender, id);
+   }
+ </code>
+</pre>
+</div>

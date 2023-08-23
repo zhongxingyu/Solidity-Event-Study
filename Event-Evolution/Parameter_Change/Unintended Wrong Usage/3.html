@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -594,7 +594,7 @@ contract rarity is ERC721 {
+         uint _xp_required = xp_required(_level);
+         xp[_summoner] -= _xp_required;
+         level[_summoner] = _level+1;
+-        emit leveled(msg.sender, _level, _summoner);
++        emit leveled(msg.sender, level[_summoner], _summoner);
+     }
+ </code>
+</pre>
+</div>

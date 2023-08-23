@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -143,11 +143,11 @@ contract ContractTest is DSTest {
+     function testTokenURI() public {
+         vm.warp(5);
+         valenftines.mint{value: 3e16}(0x8aDc376F33Fd467FdF3293Df4eAe7De6Fd5CcAf1, 1, 2, 3);
+-        // emit log_string(valenftines.tokenURI(1));
++        emit log_string(valenftines.tokenURI(1));
+ 
+         vm.prank(0x8aDc376F33Fd467FdF3293Df4eAe7De6Fd5CcAf1);
+         valenftines.transferFrom(0x8aDc376F33Fd467FdF3293Df4eAe7De6Fd5CcAf1, address(this), 1);
+-        // emit log_string(valenftines.tokenURI(1));
++        emit log_string(valenftines.tokenURI(1));
+         // emit log_string(string(valenftines.svgImage(1)));
+     }</code>
+</pre>
+</div>

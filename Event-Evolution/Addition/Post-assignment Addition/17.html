@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -303,7 +303,7 @@ contract NFTFactoryDelegate is Initializable, AccessControl, ERC721Holder, NFTFa
+ 
+         IERC20(zooToken).safeTransfer(msg.sender, amount);
+         stakedAmount[_type] = stakedAmount[_type] - amount;
+-        // emit ZooClaim(msg.sender, amount, _type, tokenId);
++        emit ZooClaim(msg.sender, amount, _type, tokenId);
+     }
+ </code>
+</pre>
+</div>

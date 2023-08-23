@@ -1,0 +1,31 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -926,12 +926,14 @@ contract OptinoToken is BasicToken {
+         settleFor(msg.sender);
+     }
+     function settleFor(address tokenOwner) public {
++        emit LogInfo("settleFor start msg.sender", msg.sender, 0);
+         require(msg.sender == tokenOwner || msg.sender == pair || msg.sender == address(this));
+         if (!isCover) {
+             emit LogInfo("settleFor msg.sender for Optino token. Transferring to Cover token", msg.sender, 0);
+             OptinoToken(payable(pair)).settleFor(tokenOwner);
+         } else {
+             emit LogInfo("settleFor msg.sender for Cover token", msg.sender, 0);
++            emit LogInfo("settleFor tokenOwner for Cover token", tokenOwner, 0);
+             uint optinoTokens = ERC20(pair).balanceOf(tokenOwner);
+             uint coverTokens = ERC20(this).balanceOf(tokenOwner);</code>
+</pre>
+</div>

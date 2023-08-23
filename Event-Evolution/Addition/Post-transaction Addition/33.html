@@ -1,0 +1,24 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -685,6 +687,7 @@ contract KashiPair is ERC20, BoringOwnable, IMasterContract {
+         address _feeTo = masterContract.feeTo();
+         uint256 _feesEarnedFraction = accrueInfo.feesEarnedFraction;
+         balanceOf[_feeTo] = balanceOf[_feeTo].add(_feesEarnedFraction);
++        emit Transfer(address(0), _feeTo, _feesEarnedFraction);
+         accrueInfo.feesEarnedFraction = 0;
+ </code>
+</pre>
+</div>

@@ -1,0 +1,12 @@
+README.md
+setup.py
+gas_reducer/FunctionDefinition.py
+gas_reducer/Rules.py
+gas_reducer/SolidityUnit.py
+gas_reducer/__init__.py
+gas_reducer/__main__.py
+gas_reducer/function.py
+gas_reducer.egg-info/PKG-INFO
+gas_reducer.egg-info/SOURCES.txt
+gas_reducer.egg-info/dependency_links.txt
+gas_reducer.egg-info/top_level.txt

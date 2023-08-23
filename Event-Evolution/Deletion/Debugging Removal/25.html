@@ -1,0 +1,26 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -212,10 +236,6 @@ contract Rebalancer {
+             // This is harmless, as any extras will just be redeposited
+             _bptNeeded = _bptNeeded.mul(1001).div(1000);
+ 
+-            emit Debug("_amountNeededMore", _amountNeededMore);
+-            emit Debug("_pooled", _pooled);
+-            emit Debug("_percentBptNeeded", _percentBptNeeded);
+-            emit Debug("_bptNeeded", _bptNeeded);
+             uint256 _bptOut = Math.min(_bptNeeded, _bptTotal.sub(seedBptAmount));</code>
+</pre>
+</div>

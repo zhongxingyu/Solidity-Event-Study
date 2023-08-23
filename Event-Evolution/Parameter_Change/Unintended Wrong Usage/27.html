@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -97,7 +97,7 @@ contract Market is IMarket, ERC20, Delegable {
+             k
+         );
+         _mint(msg.sender, initialSupply);
+-        emit Liquidity(maturity, msg.sender, msg.sender, toInt256(daiIn), toInt256(yDaiIn), toInt256(0)); // TODO: Fix after merging https://github.com/yieldprotocol/ytoken-mvp/pull/173
++        emit Liquidity(maturity, msg.sender, msg.sender, -toInt256(daiIn), -toInt256(yDaiIn), toInt256(initialSupply));
+     }
+ </code>
+</pre>
+</div>

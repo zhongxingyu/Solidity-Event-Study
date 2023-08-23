@@ -1,0 +1,35 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -150,8 +156,16 @@ contract WitnetRequestBoard is WitnetRequestBoardInterface {
+     requests[_id].drHash = _drHash;
+     requests[_id].result = _result;
+     msg.sender.transfer(requests[_id].tallyReward);
++    emit PostedResult(msg.sender, _id);
+   }
+ 
++  /// @dev Retrieves the gas price set for a specific DR ID.
++  /// @param _id The unique identifier of the data request.
++  /// @return The gas price set by the request creator.
++  function readGasPrice(uint256 _id) external view validId(_id) returns(uint256) {
++  return requests[_id].gasPrice;
++  } 
++
+   /// @dev Retrieves the bytes of the serialization of one data request from the WRB.
+   /// @param _id The unique identifier of the data request.
+   /// @return The result of the data request as bytes.
+</code>
+</pre>
+</div>

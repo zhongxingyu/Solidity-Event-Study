@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -105,24 +101,25 @@ contract VaultKeep3rJob is UtilsReady, Keep3rJob, IVaultKeep3rJob {
+         return false;
+     }
+ 
+-    function _workable(address _vault) internal returns (bool) {
++    function _workable(address _vault) internal view returns (bool) {
+         require(requiredEarn[_vault] > 0, "VaultKeep3rJob::workable:vault-not-added");
+         return (calculateEarn(_vault) >= requiredEarn[_vault] && block.timestamp > lastEarnAt[_vault].add(earnCooldown));
+     }
+ 
+     // Keep3r actions
+-    function work(address _vault) external override {
+-        require(workable(_vault), "VaultKeep3rJob::earn:not-workable");
++    function work(bytes memory _workData) external override notPaused onlyProxyJob {
++        address _vault = decodeWorkData(_workData);
++        require(_workable(_vault), "VaultKeep3rJob::earn:not-workable");
+ 
+         _earn(_vault);
+ 
+-        emit EarnByKeeper(_vault);
++        emit Worked(_vault);
+     }
+ 
+     // Governor keeper bypass
+     function forceWork(address _vault) external override onlyGovernor {
+         _earn(_vault);
+-        emit EarnByGovernor(_vault);
++        emit ForceWorked(_vault);
+     }</code>
+</pre>
+</div>

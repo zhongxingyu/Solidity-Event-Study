@@ -1,0 +1,29 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -228,8 +226,8 @@ contract BorrowTasks is RepayLoan {
+         require(nextOwner != 0, "Invalid Address.");
+         MakerCDP loanMaster = MakerCDP(cdpAddr);
+         loanMaster.give(cdps[msg.sender], nextOwner);
+-        emit TranferCDP(cdps[msg.sender], msg.sender, nextOwner);
+         cdps[msg.sender] = blankCDP;
++        emit TranferCDP(cdps[msg.sender], msg.sender, nextOwner);
+     }
+ 
+     function getETHRate() public view returns (uint) {
+
+\ No newline at end of file</code>
+</pre>
+</div>

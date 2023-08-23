@@ -1,0 +1,31 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -216,14 +216,9 @@ contract VaultsTest is DSTestPlus {
+         // Expected: between 1.4e18 and 1.5e18
+         hevm.roll(block.number + vault.minimumHarvestDelay());
+ 
+-        emit log_uint((vault.maxLockedProfit() * vault.feePercentage()) / 1e18);
+         vault.harvest();
+-        emit log_named_uint("Expected fee amount", (vault.feePercentage() * 0.5e18) / 1e18);
+-
+         uint256 feesTaken = vault.balanceOfUnderlying(address(1));
+         assertTrue(feesTaken > 0.0099e18 && feesTaken < 0.01e18);
+-        emit log_uint(feesTaken);
+-        emit log_uint(vault.balanceOf(address(1)));
+     }
+ </code>
+</pre>
+</div>

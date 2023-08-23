@@ -1,0 +1,40 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -61,17 +60,17 @@ contract MemberRoles is Governed {
+     function addInitialMemberRoles() public {
+         require(!adderCheck);
+         memberRole.push("");
+-        emit MemberRole(uint(Role.UnAssigned), "Everyone", "Professionals that are a part of the GBT network", false);
++        emit MemberRole(0, "Everyone", "Professionals that are a part of the GBT network", false);
+         memberRole.push("Advisory Board");
+         emit MemberRole(
+-            uint(Role.AdvisoryBoard),
++            1,
+             "Advisory Board",
+             "Selected few members that are deeply entrusted by the dApp.", //solhint-disable-line
+             false
+         );
+         memberRole.push("Token Holder");
+         emit MemberRole(
+-            uint(Role.TokenHolder),
++            2,
+             "Token Holder",
+             "Represents all users who hold dApp tokens. ", //solhint-disable-line
+             false
+
+</code>
+</pre>
+</div>

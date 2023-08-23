@@ -1,0 +1,27 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -455,8 +455,8 @@ contract DSTest {
+     function assertEq0(bytes memory a, bytes memory b) internal {
+         if (!checkEq0(a, b)) {
+             emit log("Error: a == b not satisfied [bytes]");
+-            emit log_named_bytes("  Expected", a);
+-            emit log_named_bytes("    Actual", b);
++            emit log_named_bytes("  Expected", b);
++            emit log_named_bytes("    Actual", a);
+             fail();
+         }</code>
+</pre>
+</div>

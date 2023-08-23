@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -473,7 +473,7 @@ contract ImpermanentGain is ERC20Mintable {
+         a[msg.sender] = a[msg.sender].sub(_a);
+         b[msg.sender] = b[msg.sender].sub(_b);
+         _mint(msg.sender, _lp);
+-        emit AddLP(msg.sender, _lp, _a, _b);
++        emit AddLP(msg.sender, _a, _b, _lp);
+     }
+ </code>
+</pre>
+</div>

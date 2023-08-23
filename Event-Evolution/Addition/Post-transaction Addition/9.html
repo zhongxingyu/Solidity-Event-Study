@@ -1,0 +1,28 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -139,8 +147,11 @@ contract NRTManager is Governable, RegistryDependent, WithAdminMode {
+ 
+         if (_burnAmount > 0) {
+             BURN_ADDR.transfer(_burnAmount);
++            emit Burn(currentNrtMonth, _burnAmount);
+         }
+ 
++        emit NRT(currentNrtMonth, _monthNRT, msg.sender);
++
+         for (uint256 i = 0; i < platformIdentifiers.length; i++) {
+             uint256 _platformNRT = _monthNRT.mul(perThousands[i]).div(1000);</code>
+</pre>
+</div>

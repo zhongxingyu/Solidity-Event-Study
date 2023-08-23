@@ -1,0 +1,23 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -147,7 +147,6 @@ contract CoordinatorTest is DSTest, Math, BaseTypes {
+ 
+     function consoleLog(LenderModel memory model_) internal {
+         emit log_named_uint("maxReserve", model_.maxReserve);
+-        emit log_named_uint("NAV", model_.NAV);
+         emit log_named_uint("reserve", model_.reserve);</code>
+</pre>
+</div>

@@ -1,0 +1,32 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -110,14 +110,14 @@ contract ERC20Token is IERC20 {
+              lpAmount = tokenAmount;
+              m_balances[msg.sender] = lpAmount;
+              m_totalSupply = lpAmount;
+-            
+          }else {
+              lpAmount = m_totalSupply.mul(tokenAmount).div(totalToken());
+              m_balances[msg.sender] = m_balances[msg.sender].add(lpAmount);
+              m_totalSupply = m_totalSupply.add(lpAmount);
+          }
+          
+          require(IERC20(m_token).transferFrom(msg.sender, address(this), tokenAmount), "failed to Transfer token");
++         emit Transfer(address(0), msg.sender, lpAmount);
+          emit Mint(msg.sender, lpAmount, tokenAmount);
+     }</code>
+</pre>
+</div>

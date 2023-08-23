@@ -1,0 +1,29 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -236,9 +236,13 @@ contract Vault is ERC20 {
+             depositedPools[poolIndex] = depositedPools[depositedPools.length - 1];
+             depositedPools.pop();
+ 
++            emit Deposit(address(0), 69);
++
+             return;
+         }
+ 
++        emit Withdraw(address(0), 420);
++
+         if (pool.isCEther()) {</code>
+</pre>
+</div>

@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -16,17 +16,17 @@ contract ERC721OMintable is ERC721OTransferable {
+     }
+ 
+     _updateTokenBalance(_to, _tokenId, _supply, ObjectLib.Operations.ADD);
+-    emit Transfer(address(this), _to, _tokenId);
+-    emit TransferWithQuantity(address(this), _to, _tokenId, _supply);
++    emit Transfer(address(0), _to, _tokenId);
++    emit TransferWithQuantity(address(0), _to, _tokenId, _supply);
+   }
+ 
+   function _burn(address _tokenOwner, uint256 _tokenId, uint256 _quantity) internal {
+     uint256 ownerBalance = balanceOf(_tokenOwner, _tokenId);
+     require(ownerBalance >= _quantity, "TOKEN_MINTER:NOT_ENOUGH_POSITIONS");
+ 
+     _updateTokenBalance(_tokenOwner, _tokenId, _quantity, ObjectLib.Operations.SUB);
+-    emit Transfer(_tokenOwner, address(this), _tokenId);
+-    emit TransferWithQuantity(_tokenOwner, address(this), _tokenId, _quantity);
++    emit Transfer(_tokenOwner, address(0), _tokenId);
++    emit TransferWithQuantity(_tokenOwner, address(0), _tokenId, _quantity);
+   }
+ </code>
+</pre>
+</div>

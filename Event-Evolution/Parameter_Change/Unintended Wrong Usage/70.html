@@ -1,0 +1,35 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -244,10 +312,17 @@ contract Controller is IController, Orchestrated(), Delegable(), DecimalMath {
+             _treasury.pullChai(to, amount);
+         }
+ 
+-        emit Posted(collateral, from, -int256(amount)); // TODO: Watch for overflow
++        emit Posted(collateral, from, -toInt256(amount));
+     }
+ 
+-    /// @dev Mint yDai for a given series for address `to` by locking its market value in collateral, user debt is increased in the given collateral.
++    /// @dev Mint yDai for a given series for wallet `to` by increasing the user debt in Yield vault `from`
++    /// `from` can delegate to other addresses to borrow using his vault.
++    /// The collateral needed changes according to series maturity and MakerDAO rate and chi, depending on collateral type.
++    /// @param collateral Valid collateral type.
++    /// @param maturity Maturity of an added series
++    /// @param from Yield vault that gets an increased debt.
++    /// @param to Wallet to put the yDai in.
++    /// @param yDaiAmount Amount of yDai to borrow.
+     //</code>
+</pre>
+</div>

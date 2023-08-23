@@ -1,0 +1,36 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -327,19 +327,10 @@ contract Vault is ERC20, DSTestPlus {
+     function harvest() external {
+         // TODO: (Maybe) split this into different internal functions to improve readability.
+ 
+-        emit log_named_uint("totalDeposited", totalDeposited);
+-        emit log_named_uint("float", getFloat());
+-        emit log_named_uint("Exchange rate", exchangeRateCurrent());
+-        emit log("");
+-
+         // Calculate an updated float value based on the amount of profit during the last harvest.
+         uint256 updatedFloat = (totalDeposited * targetFloatPercent) / 1e18;
+         if (updatedFloat > getFloat()) pullIntoFloat(updatedFloat - getFloat());
+ 
+-        emit log_named_uint("totalDeposited", totalDeposited);
+-        emit log_named_uint("float", getFloat());
+-        emit log_named_uint("Exchange rate", exchangeRateCurrent());
+-
+         // Transfer fvTokens (representing fees) to the fee holder
+         uint256 _fee = harvestFee;</code>
+</pre>
+</div>

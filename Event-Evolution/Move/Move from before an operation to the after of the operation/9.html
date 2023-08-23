@@ -1,0 +1,31 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -333,12 +332,13 @@ contract SyscoinClaimManager is Initializable, SyscoinDepositsManager, SyscoinEr
+                 claim = claims[id];
+                 err = trustedSuperblocks.confirm(id, msg.sender);
+                 require(err == ERR_SUPERBLOCK_OK);
+-                emit SuperblockClaimSuccessful(id, claim.submitter, inProcessCounter-1);
+                 doPaySubmitter(id, claim);
+                 inProcessCounter--;
++                emit SuperblockClaimSuccessful(id, claim.submitter, inProcessCounter);
+             }
+         }
+         inProcessCounter--;
++        emit SuperblockClaimSuccessful(superblockHash, claim.submitter, inProcessCounter);
+         return true;
+     }</code>
+</pre>
+</div>

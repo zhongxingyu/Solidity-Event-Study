@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -186,6 +191,8 @@ contract NonCustodialPSMTest is DSTest {
+         /// advance the full time period to get the full 1% price increase
+         vm.warp(28 days + block.timestamp);
+ 
++        emit log_uint(block.timestamp);
++
+         assertEq(psm.getMintAmountOut(amountStableIn), expectedAmountVoltOut);
+     }</code>
+</pre>
+</div>

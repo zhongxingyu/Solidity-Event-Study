@@ -1,0 +1,28 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -186,9 +187,11 @@ contract Amm is IAmm, LiquidityERC20, Reentrant {
+             reserve0 = _baseReserve - outputAmount;
+             reserve1 = _quoteReserve + inputAmount;
+         }
+-        emit ForceSwap(trader, inputToken, outputToken, inputAmount, outputAmount);
++
+         _update(reserve0, reserve1, _baseReserve, _quoteReserve, true);
+         if (feeOn) kLast = uint256(baseReserve) * quoteReserve;
++
++        emit ForceSwap(trader, inputToken, outputToken, inputAmount, outputAmount);
+     }</code>
+</pre>
+</div>

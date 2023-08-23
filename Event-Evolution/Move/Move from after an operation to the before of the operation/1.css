@@ -1,0 +1,17 @@
+.codeLocation{
+            display: flex;
+            justify-content: center;
+/*            align-items: center;*/
+}
+
+body {
+    background-image: url("pattern-squares2.png");
+    -webkit-transition: all 200ms;
+    -moz-transition: all 200ms;
+    -o-transition: all 200ms;
+    -ms-transition: all 200ms;
+    transition: all 200ms;
+    background-attachment: fixed;
+    background-position: center center;
+    background-color: #333;
+  }

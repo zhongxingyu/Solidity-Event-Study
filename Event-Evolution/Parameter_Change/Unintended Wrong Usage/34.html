@@ -1,0 +1,26 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -74,7 +74,7 @@ contract DEAToken is ERC20, AccessControl{
+     }
+ 	
+ 	function _beforeTokenTransfer(address from, address to, uint256 value) internal virtual override {
+-        emit Transfer(sender, recipient, amount.mul(rebaseMultiplierScale).div(rebaseMultiplier));
++        emit Transfer(from, to, value.mul(rebaseMultiplierScale).div(rebaseMultiplier));
+     }
+ }
+ //Dar panah khoda</code>
+</pre>
+</div>

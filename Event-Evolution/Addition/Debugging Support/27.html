@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -135,10 +176,13 @@ contract Rebalancer {
+         _minAmounts[1] = 0;
+         uint256 _bpt = balanceOfBpt();
+         if (_bpt > seedBptAmount) {
++            emit Debug("_bpt.sub(seedBptAmount)", _bpt.sub(seedBptAmount));
++            emit Debug("pooledBalanceA", pooledBalanceA());
++            emit Debug("pooledBalanceB", pooledBalanceB());
+             bpt.exitPool(_bpt.sub(seedBptAmount), _minAmounts);
++            emit Debug("exit success", 0);
+         }
+ 
+-        // TODO enforce pool weight limts
+         uint256 _debtAUsd = providerA.totalDebt().mul(providerA.getPriceFeed()).div(10 ** providerA.getPriceFeedDecimals());</code>
+</pre>
+</div>

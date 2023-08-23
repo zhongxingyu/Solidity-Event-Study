@@ -1,0 +1,29 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -422,11 +422,11 @@ contract SynapseBridge is Initializable, AccessControlUpgradeable, ReentrancyGua
+         emit TokenWithdrawAndRemove(to, token, finalSwappedAmount, fee, swapTokenIndex, swapMinAmount, swapDeadline, true, kappa);
+       } catch {
+         IERC20(token).safeTransfer(to, amount.sub(fee));
+-        emit TokenWithdrawAndRemove(to, token, amount, fee, swapTokenIndex, swapMinAmount, swapDeadline, false, kappa);
++        emit TokenWithdrawAndRemove(to, token, amount.sub(fee), fee, swapTokenIndex, swapMinAmount, swapDeadline, false, kappa);
+       }
+     } else {
+       token.safeTransfer(to, amount.sub(fee));
+-      emit TokenWithdrawAndRemove(to, token, amount, fee, swapTokenIndex, swapMinAmount, swapDeadline, false, kappa);
++      emit TokenWithdrawAndRemove(to, token, amount.sub(fee), fee, swapTokenIndex, swapMinAmount, swapDeadline, false, kappa);
+     }</code>
+</pre>
+</div>

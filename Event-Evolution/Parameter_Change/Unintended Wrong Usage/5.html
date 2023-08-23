@@ -1,0 +1,32 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -59,13 +59,13 @@ contract EtherOrcsItems is IERC1155 {
+     function _mint(address _to, uint256 _id, uint256 _amount) internal {
+         decimalBalances[_to][_id] += _amount; 
+         balances[_to][_id] = decimalBalances[_to][_id] / 1 ether;
+-        emit TransferSingle(msg.sender, address(0x0), _to, _id, _amount);
++        emit TransferSingle(msg.sender, address(0x0), _to, _id, _amount / 1 ether);
+     }
+     
+     function _burn(address _from, uint256 _id, uint256 _amount) internal {
+         decimalBalances[_from][_id] -= _amount; 
+         balances[_from][_id] = decimalBalances[_from][_id] / 1 ether;
+-        emit TransferSingle(msg.sender, _from, address(0x0), _id, _amount);
++        emit TransferSingle(msg.sender, _from, address(0x0), _id, _amount / 1 ether);
+     }
+ </code>
+</pre>
+</div>

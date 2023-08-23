@@ -1,0 +1,31 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solidity Event Study</title>
+<!-- <link href="https://cdn.bootcss.com/highlight.js/11.6.0/styles/atom-one-light.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.bootcss.com/highlight.js/11.6.0/highlight.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script type="text/javaScript" src="highlight.js"></script>
+<link rel="stylesheet" type="text/css" href="1.css">
+<script >hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="codeLocation" style="height: 100px"></div>
+<div class="codeLocation" >
+<pre style="font-size: 15px;">
+<code class="Solidity">@@ -325,10 +425,14 @@ contract Controller is IController, Orchestrated(), Delegable(), DecimalMath {
+         debtYDai[collateral][maturity][user] = debtYDai[collateral][maturity][user].sub(yDaiAmount);
+         totalDebtYDai[collateral][maturity] = totalDebtYDai[collateral][maturity].sub(yDaiAmount);
+ 
+-        emit Borrowed(collateral, maturity, user, -int256(yDaiAmount)); // TODO: Watch for overflow
++        emit Borrowed(collateral, maturity, user, -toInt256(yDaiAmount));
+     }
+ 
+     /// @dev Removes all collateral and debt for an user, for a given collateral type.
++    /// This function can only be called by other Yield contracts, not users directly.
++    /// @param collateral Valid collateral type.
++    /// @param user Address of the user vault
++    /// @return The amounts of collateral and debt removed from Controller.
+     function erase(bytes32 collateral, address user)</code>
+</pre>
+</div>
