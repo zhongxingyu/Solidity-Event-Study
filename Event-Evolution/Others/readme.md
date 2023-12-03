@@ -3,6 +3,6 @@ For three modifications, they change both the name and parameters of the used ev
 
 |serial number|  content link  |serial number|  content link  |
 |    :---:    |      :---:     |    :---:    |      :---:     |
-|1|[Snippet of Event Use Code Changes](https://SolEventStudy01.github.io/Solidity-Event-Study/Event-Evolution/Others/1.html)|2|[Snippet of Event Use Code Changes](https://SolEventStudy01.github.io/Solidity-Event-Study/Event-Evolution/Others/2.html)
-|3|[Snippet of Event Use Code Changes](https://SolEventStudy01.github.io/Solidity-Event-Study/Event-Evolution/Others/3.html)
+|1|[Snippet of Event Use Code Changes](https://mingbaile.github.io/Solidity-Event-Study/Event-Evolution/Others/1.html)|2|[Snippet of Event Use Code Changes](https://mingbaile.github.io/Solidity-Event-Study/Event-Evolution/Others/2.html)
+|3|[Snippet of Event Use Code Changes](https://mingbaile.github.io/Solidity-Event-Study/Event-Evolution/Others/3.html)
 
