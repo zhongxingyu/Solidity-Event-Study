@@ -3,7 +3,7 @@ Category **Replacement** means that the name of the used event is modified witho
 
 |serial number|  content link  |serial number|  content link  |
 |    :---:    |      :---:     |    :---:    |      :---:     |
-|1|[Snippet of Event Use Code Changes](https://SolEventStudy01.github.io/Solidity-Event-Study/Event-Evolution/Replacement/1.html)|2|[Snippet of Event Use Code Changes](https://SolEventStudy01.github.io/Solidity-Event-Study/Event-Evolution/Replacement/2.html)
-|3|[Snippet of Event Use Code Changes](https://SolEventStudy01.github.io/Solidity-Event-Study/Event-Evolution/Replacement/3.html)|4|[Snippet of Event Use Code Changes](https://SolEventStudy01.github.io/Solidity-Event-Study/Event-Evolution/Replacement/4.html)
-|5|[Snippet of Event Use Code Changes](https://SolEventStudy01.github.io/Solidity-Event-Study/Event-Evolution/Replacement/5.html)
+|1|[Snippet of Event Use Code Changes](https://mingbaile.github.io/Solidity-Event-Study/Event-Evolution/Replacement/1.html)|2|[Snippet of Event Use Code Changes](https://mingbaile.github.io/Solidity-Event-Study/Event-Evolution/Replacement/2.html)
+|3|[Snippet of Event Use Code Changes](https://mingbaile.github.io/Solidity-Event-Study/Event-Evolution/Replacement/3.html)|4|[Snippet of Event Use Code Changes](https://mingbaile.github.io/Solidity-Event-Study/Event-Evolution/Replacement/4.html)
+|5|[Snippet of Event Use Code Changes](https://mingbaile.github.io/Solidity-Event-Study/Event-Evolution/Replacement/5.html)
 
